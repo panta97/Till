@@ -11,53 +11,14 @@ using System;
 namespace caja.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180228170322_AddedTillAndTallyModels")]
+    partial class AddedTillAndTallyModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
-
-            modelBuilder.Entity("caja.Models.Earning", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<decimal>("Denomination");
-
-                    b.Property<int>("TallyId");
-
-                    b.Property<string>("Type");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TallyId");
-
-                    b.ToTable("Earnings");
-                });
-
-            modelBuilder.Entity("caja.Models.Expense", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("TallyId");
-
-                    b.Property<string>("Type");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TallyId");
-
-                    b.ToTable("Expenses");
-                });
 
             modelBuilder.Entity("caja.Models.Tally", b =>
                 {
@@ -109,22 +70,6 @@ namespace caja.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("caja.Models.Earning", b =>
-                {
-                    b.HasOne("caja.Models.Tally", "Tally")
-                        .WithMany("Earnings")
-                        .HasForeignKey("TallyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("caja.Models.Expense", b =>
-                {
-                    b.HasOne("caja.Models.Tally", "Tally")
-                        .WithMany("Expenses")
-                        .HasForeignKey("TallyId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("caja.Models.Tally", b =>
