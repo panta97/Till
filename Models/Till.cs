@@ -3,17 +3,16 @@ using System.Collections.ObjectModel;
 
 namespace caja.Models
 {
-    public class User
+    public class Till
     {
         public int Id { get; set; }
-        public string Username { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
+        public string Store { get; set; }
+        public int Number { get; set; }
         public ICollection<Tally> Tallies { get; set; }
-        public User()
+
+        public Till()
         {
             Tallies = new Collection<Tally>();
         }
-
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace caja.Migrations
@@ -16,7 +17,84 @@ namespace caja.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+
+            modelBuilder.Entity("caja.Models.Earning", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<decimal>("Denomination");
+
+                    b.Property<int>("TallyId");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TallyId");
+
+                    b.ToTable("Earnings");
+                });
+
+            modelBuilder.Entity("caja.Models.Expense", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("TallyId");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TallyId");
+
+                    b.ToTable("Expenses");
+                });
+
+            modelBuilder.Entity("caja.Models.Tally", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<decimal>("Final");
+
+                    b.Property<int?>("TillId");
+
+                    b.Property<int?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TillId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tallies");
+                });
+
+            modelBuilder.Entity("caja.Models.Till", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Number");
+
+                    b.Property<string>("Store");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tills");
+                });
 
             modelBuilder.Entity("caja.Models.User", b =>
                 {
@@ -32,6 +110,33 @@ namespace caja.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("caja.Models.Earning", b =>
+                {
+                    b.HasOne("caja.Models.Tally", "Tally")
+                        .WithMany("Earnings")
+                        .HasForeignKey("TallyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("caja.Models.Expense", b =>
+                {
+                    b.HasOne("caja.Models.Tally", "Tally")
+                        .WithMany("Expenses")
+                        .HasForeignKey("TallyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("caja.Models.Tally", b =>
+                {
+                    b.HasOne("caja.Models.Till")
+                        .WithMany("Tallies")
+                        .HasForeignKey("TillId");
+
+                    b.HasOne("caja.Models.User")
+                        .WithMany("Tallies")
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
