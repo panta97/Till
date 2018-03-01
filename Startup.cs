@@ -28,8 +28,9 @@ namespace caja
         {
             services.AddDbContext<DataContext>(x => x.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<Seed>();
-            services.AddMvc();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ICommonRepository, CommonRepository>();
+            services.AddMvc();
         }
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
