@@ -27,6 +27,7 @@ namespace caja
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<Seed>();
             services.AddMvc();
             services.AddScoped<IAuthRepository, AuthRepository>();
         }
@@ -38,13 +39,13 @@ namespace caja
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            // seeder.SeedUsers();
             app.UseMvc();
         }
     }

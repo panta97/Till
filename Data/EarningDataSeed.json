@@ -1,0 +1,302 @@
+[
+  {
+    "Amount": 266,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 312,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 178,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 357,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 266,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 305,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 156,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 56,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 130,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 246,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 85,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 235,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  },
+  {
+    "Amount": 157,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 359,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 142,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 74,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 361,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 289,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 357,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 148,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 14,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 88,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 352,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 134,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  },
+  {
+    "Amount": 25,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 276,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 107,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 383,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 259,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 269,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 304,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 21,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 394,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 15,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 292,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 84,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  },
+  {
+    "Amount": 379,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 311,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 252,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 176,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 260,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 165,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 275,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 16,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 234,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 302,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 352,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 300,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  },
+  {
+    "Amount": 15,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 223,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 214,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 54,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 173,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 112,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 360,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 116,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 115,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 68,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 29,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 240,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  }
+]
