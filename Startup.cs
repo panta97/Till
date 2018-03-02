@@ -32,6 +32,7 @@ namespace caja
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ICommonRepository, CommonRepository>();
+            services.AddCors();
             services.AddMvc();
         }
         public void ConfigureDevelopmentServices(IServiceCollection services)
@@ -49,6 +50,7 @@ namespace caja
                 app.UseDeveloperExceptionPage();
             }
             // seeder.SeedUsers();
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseMvc();
         }
     }
