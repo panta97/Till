@@ -10,6 +10,8 @@ namespace caja.Helpers
         {
             CreateMap<Earning, EarningsDto>();
             CreateMap<Expense, ExpensesDto>();
+            CreateMap<EarningForUpdateDto, Earning>();
+            CreateMap<ExpenseForUpdateDto, Expense>();
         }
     }
 }

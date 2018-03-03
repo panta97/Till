@@ -1,9 +1,9 @@
 namespace caja.Dtos
 {
-    public class ExpensesDto
+    public class ExpenseForUpdateDto
     {
-        public int Id { get; set; }
-        public string Type { get; set; }
+        public int TallyId { get; set; }
+        public int ExpenseId { get; set; }
         public decimal Amount { get; set; }
         public string Description { get; set; }
     }
