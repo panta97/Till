@@ -60,7 +60,7 @@ namespace caja.Controllers
             return Ok(expensesToReturn);
         }
 
-        [HttpPut("expense")]
+        [HttpPut]
         public async Task<ActionResult> UpdateExpense([FromBody] ExpenseForUpdateDto expenseForUpdateDto)
         {
             var expenseFromRepo = await _repo
