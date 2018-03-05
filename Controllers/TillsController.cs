@@ -19,73 +19,74 @@ namespace caja.Controllers
       _repo = repo;
     }
 
-    [HttpGet("earnings/{id}")]
-    public async Task<ActionResult> GetEarnings(int id)
-    {
-      var earnings = await _repo.GetEarnings(id);
+    // [HttpGet("earnings/{id}")]
+    // public async Task<ActionResult> GetEarnings(int id)
+    // {
+    //   var earnings = await _repo.GetEarnings(id);
 
-      var earningsToReturn = _mapper.Map<IEnumerable<EarningsDto>>(earnings);
+    //   var earningsToReturn = _mapper.Map<IEnumerable<EarningsDto>>(earnings);
 
-      return Ok(earningsToReturn);
-    }
+    //   return Ok(earningsToReturn);
+    // }
 
-    [HttpGet("expenses/{id}")]
-    public async Task<ActionResult> GetExpenses(int id)
-    {
-      var expenses = await _repo.GetExpenses(id);
+    // [HttpGet("expenses/{id}")]
+    // public async Task<ActionResult> GetExpenses(int id)
+    // {
+    //   var expenses = await _repo.GetExpenses(id);
       
-      var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
+    //   var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
 
-      return Ok(expensesToReturn);
-    }
+    //   return Ok(expensesToReturn);
+    // }
 
-    [HttpGet("expenses/{id}/{type}")]
-    public async Task<ActionResult> GetExpensesByType(int id, string type)
-    {
-      var expenses = await _repo.GetExpensesByType(id, type);
+    // [HttpGet("expenses/{id}/{type}")]
+    // public async Task<ActionResult> GetExpensesByType(int id, string type)
+    // {
+    //   var expenses = await _repo.GetExpensesByType(id, type);
 
-      var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
+    //   var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
 
-      return Ok(expensesToReturn);
-    }
+    //   return Ok(expensesToReturn);
+    // }
 
-    [HttpPut("earnings/")]
-    public async Task<ActionResult> UpdateEarning([FromBody] EarningForUpdateDto earningForUpdateDto)
-    {
-      var earningFromRepo = await _repo
-        .GetEarning(earningForUpdateDto.TallyId, earningForUpdateDto.EarningId);
+    // [HttpPut("earnings/")]
+    // public async Task<ActionResult> UpdateEarning([FromBody] EarningForUpdateDto earningForUpdateDto)
+    // {
+    //   var earningFromRepo = await _repo
+    //     .GetEarning(earningForUpdateDto.TallyId, earningForUpdateDto.EarningId);
 
-      // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
+    //   // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
 
-      earningFromRepo.Amount = earningForUpdateDto.Amount;
+    //   earningFromRepo.Amount = earningForUpdateDto.Amount;
 
-      if (await _repo.SaveAll())
-      {
-          return Ok();
-      }
+    //   if (await _repo.SaveAll())
+    //   {
+    //       return Ok();
+    //   }
 
-      throw new Exception("failed on updating the earning");
-    }
+    //   throw new Exception("failed on updating the earning");
+    // }
 
-    [HttpPut("expense")]
-    public async Task<ActionResult> UpdateExpense([FromBody] ExpenseForUpdateDto expenseForUpdateDto)
-    {
-      var expenseFromRepo = await _repo
-        .GetExpense(expenseForUpdateDto.TallyId, expenseForUpdateDto.ExpenseId);
+    // [HttpPut("expense")]
+    // public async Task<ActionResult> UpdateExpense([FromBody] ExpenseForUpdateDto expenseForUpdateDto)
+    // {
+    //   var expenseFromRepo = await _repo
+    //     .GetExpense(expenseForUpdateDto.TallyId, expenseForUpdateDto.ExpenseId);
 
-      // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
+    //   // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
 
-      var expenseToReturn = _mapper.Map(expenseForUpdateDto, expenseFromRepo);
+    //   var expenseToReturn = _mapper.Map(expenseForUpdateDto, expenseFromRepo);
 
-      if (await _repo.SaveAll())
-      {
-          return Ok();
-      }
+    //   if (await _repo.SaveAll())
+    //   {
+    //       return Ok();
+    //   }
 
-      throw new Exception("failed on updating the expense");
-    }
+    //   throw new Exception("failed on updating the expense");
+    // }
 
-
+    // [HttpPost("earning")]
+    // public async Task<ActionResult> CreateEarning()
 
   }
 }

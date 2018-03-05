@@ -1,0 +1,62 @@
+[
+  {
+    "Amount": 0,
+    "Denomination": 0.1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 0.2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 0.5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 1,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 2,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 5,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 10,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 20,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 50,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 100,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 200,
+    "Type": "efectivo"
+  },
+  {
+    "Amount": 0,
+    "Denomination": 1,
+    "Type": "tarjeta"
+  }
+]
