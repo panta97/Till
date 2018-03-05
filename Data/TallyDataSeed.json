@@ -1,22 +1,32 @@
 [
   {
     "Created": "2016-12-13",
-    "Final": 7615
+    "Final": 7615,
+    "TillId": 1,
+    "UserId": 1
   },
   {
     "Created": "2016-09-22",
-    "Final": 2574
+    "Final": 2574,
+    "TillId": 2,
+    "UserId": 2
   },
   {
     "Created": "2018-03-18",
-    "Final": 3541
+    "Final": 3541,
+    "TillId": 3,
+    "UserId": 3
   },
   {
     "Created": "2017-11-19",
-    "Final": 6382
+    "Final": 6382,
+    "TillId": 4,
+    "UserId": 4
   },
   {
     "Created": "2016-11-11",
-    "Final": 6158
+    "Final": 6158,
+    "TillId": 5,
+    "UserId": 5
   }
 ]

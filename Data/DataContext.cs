@@ -17,6 +17,7 @@ namespace caja.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // Tally Earnings
             builder.Entity<TallyEarning>()
                 .HasKey(k => new {k.EarningId, k.TallyId});
 
@@ -30,6 +31,7 @@ namespace caja.Data
                 .WithMany(t => t.Tally)
                 .HasForeignKey(t => t.EarningId);
 
+            // Tally Expenses
             builder.Entity<TallyExpense>()            
                 .HasKey(k => new {k.ExpenseId, k.TallyId});
             
@@ -42,6 +44,17 @@ namespace caja.Data
                 .HasOne(t => t.Expense)
                 .WithMany(t => t.Tally)
                 .HasForeignKey(t => t.ExpenseId);
+
+            // Tally
+            builder.Entity<Tally>()
+                .HasOne(t => t.Till)
+                .WithMany(t => t.Tallies)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Tally>()
+                .HasOne(t => t.User)
+                .WithMany(t => t.Tallies)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
         
