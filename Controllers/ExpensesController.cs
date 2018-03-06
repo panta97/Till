@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using caja.API.Helpers;
 using caja.Dtos;
 using caja.Models;
 using caja.Repositories;
@@ -58,6 +59,34 @@ namespace caja.Controllers
             var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
 
             return Ok(expensesToReturn);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetExpenses(ExpenseParams expenseParams)
+        {
+            if (!(expenseParams.Type == "sistema" || expenseParams.Type == "diario"))
+            {
+                ModelState.AddModelError("expenseType", "expense type must be iether sistema or diario");
+            }
+
+            if (!await _repo.TillExists(expenseParams.TillId))
+            {
+                ModelState.AddModelError("tillId", "Till Id doesn't exist");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var expenses = await _repo.GetExpensesByType(expenseParams.TillId, expenseParams.Type);
+
+            var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
+
+            return Ok(expensesToReturn);
+
+            throw new Exception("failed on getting expenses");
+
         }
 
         [HttpPut]
