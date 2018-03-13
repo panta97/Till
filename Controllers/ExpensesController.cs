@@ -97,11 +97,16 @@ namespace caja.Controllers
 
             // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
 
+            if (expenseForUpdateDto.Amount == expenseFromRepo.Amount || expenseForUpdateDto.Description == expenseFromRepo.Description)
+            {
+                return Ok("amount or description have the same value");
+            }
+
             var expenseToReturn = _mapper.Map(expenseForUpdateDto, expenseFromRepo);
 
             if (await _repo.SaveAll())
             {
-                return Ok();
+                return Ok("successfully updated");
             }
 
             throw new Exception("failed on updating the expense");

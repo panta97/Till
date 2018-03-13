@@ -58,13 +58,18 @@ namespace caja.Controllers
       var earningFromRepo = await _repo
         .GetEarning(earningForUpdateDto.TallyId, earningForUpdateDto.EarningId);
 
-      var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
+      // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
+
+      if (earningForUpdateDto.Amount == earningFromRepo.Amount)
+      {
+          return Ok("amount has the same value");
+      }
 
       earningFromRepo.Amount = earningForUpdateDto.Amount;
 
       if (await _repo.SaveAll())
       {
-        return Ok();
+        return Ok("successfully updated");
       }
 
       throw new Exception("failed on updating the earning");
