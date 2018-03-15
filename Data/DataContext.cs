@@ -14,6 +14,7 @@ namespace caja.Data
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<TallyEarning> TallyEarnings { get; set; }
         public DbSet<TallyExpense> TallyExpenses { get; set; }
+        public DbSet<Store> Stores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -54,6 +55,12 @@ namespace caja.Data
             builder.Entity<Tally>()
                 .HasOne(t => t.User)
                 .WithMany(t => t.Tallies)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Till
+            builder.Entity<Till>()
+                .HasOne(t => t.Store)
+                .WithMany(t => t.Tills)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

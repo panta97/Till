@@ -31,10 +31,11 @@ namespace caja.Data
         var EarningData = System.IO.File.ReadAllText("Data/EarningDataSeed.json");
         var earnings = JsonConvert.DeserializeObject<List<Earning>>(EarningData);
         
-
         var ExpenseData = System.IO.File.ReadAllText("Data/ExpenseDataSeed.json");
         var expenses = JsonConvert.DeserializeObject<List<Expense>>(ExpenseData);
 
+        var StoreData = System.IO.File.ReadAllText("Data/StoreDataSeed.json");
+        var stores = JsonConvert.DeserializeObject<List<Store>>(StoreData);
 
         foreach (var user in users)
         {
@@ -47,6 +48,11 @@ namespace caja.Data
             user.Username = user.Username.ToLower();
 
             _context.Users.Add(user);
+        }
+
+        foreach (var store in stores)
+        {
+            _context.Stores.Add(store);
         }
 
         foreach (var till in tills)

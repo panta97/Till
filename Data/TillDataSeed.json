@@ -1,22 +1,22 @@
 [
   {
     "Number": 1,
-    "Store": "Abtao"
+    "StoreId": 1
   },
   {
     "Number": 2,
-    "Store": "Abtao"
+    "StoreId": 2
   },
   {
     "Number": 3,
-    "Store": "Abtao"
+    "StoreId": 1
   },
   {
     "Number": 4,
-    "Store": "Abtao"
+    "StoreId": 2
   },
   {
     "Number": 5,
-    "Store": "Abtao"
+    "StoreId": 1
   }
 ]
