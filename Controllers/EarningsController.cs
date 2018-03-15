@@ -5,11 +5,13 @@ using AutoMapper;
 using caja.Dtos;
 using caja.Models;
 using caja.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace caja.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   public class EarningsController : Controller
   {

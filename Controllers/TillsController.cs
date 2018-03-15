@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using caja.Dtos;
 using caja.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace caja.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   public class TillsController : Controller
   {

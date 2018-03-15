@@ -6,10 +6,12 @@ using caja.API.Helpers;
 using caja.Dtos;
 using caja.Models;
 using caja.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace caja.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ExpensesController : Controller
     {
