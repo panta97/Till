@@ -26,6 +26,12 @@ namespace caja.Repositories
             _context.Remove(entity);
         }
 
+        public async Task<IEnumerable<Store>> GetStores()
+        {
+            var stores = await _context.Stores.ToListAsync();
+            return stores;
+        }
+
         public async Task<IEnumerable<Earning>> GetEarnings(int tallyId)
         {
             var earnings = await _context.TallyEarnings

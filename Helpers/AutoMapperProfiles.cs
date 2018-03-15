@@ -15,6 +15,7 @@ namespace caja.Helpers
             // CreateMap<Expense, ExpenseForCreationDto>();
             CreateMap<ExpenseForCreationDto, Expense>();
             CreateMap<TallyForCreationDto, Tally>();
+            CreateMap<Store, StoresDto>();
         }
     }
 }
