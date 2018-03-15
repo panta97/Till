@@ -66,6 +66,15 @@ namespace caja.Repositories
             return expenses;
         }
 
+        public async Task<IEnumerable<Till>> GetTillsByStore(int storeId)
+        {
+            var tills = await _context.Tills
+                .Where(t => t.StoreId == storeId)
+                .ToListAsync();
+            
+            return tills;
+        }
+
         public async Task<Earning> GetEarning(int tallyId, int earningId)
         {
             var earning = await _context.TallyEarnings
