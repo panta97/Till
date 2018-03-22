@@ -17,8 +17,10 @@ namespace caja.Repositories
          Task<IEnumerable<Till>> GetTillsByStore(int storeId);
          Task<Earning> GetEarning(int tallyId, int earningId);
          Task<Expense> GetExpense(int tallyId, int expenseId);
+         Task<Tally> GetTally(int tallyId);
          Task<bool> UserExists (int id);
          Task<bool> TillExists (int id);
+         Task<bool> TallyExists (int id);
 
          
   }

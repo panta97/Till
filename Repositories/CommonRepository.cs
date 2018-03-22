@@ -95,6 +95,14 @@ namespace caja.Repositories
             return expense;
         }
 
+        public async Task<Tally> GetTally(int tallyId)
+        {
+            var tally = await _context.Tallies
+                .Where(t => t.Id == tallyId)
+                .FirstOrDefaultAsync();
+                
+            return tally;
+        }
 
         public async Task<bool> SaveAll()
         {
@@ -111,6 +119,13 @@ namespace caja.Repositories
         public async Task<bool> TillExists(int id)
         {
             if (await _context.Tills.AnyAsync(t => t.Id == id))
+                return true;
+            return false;
+        }
+
+        public async Task<bool> TallyExists(int id)
+        {
+            if (await _context.Tallies.AnyAsync(t => t.Id == id))
                 return true;
             return false;
         }

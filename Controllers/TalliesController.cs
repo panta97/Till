@@ -21,6 +21,22 @@ namespace caja.Controllers
             _repo = repo;
         }
 
+        [HttpGet("{id}", Name = "GetTally")]
+        public async Task<ActionResult> GetTally(int id)
+        {
+            if (!await _repo.TallyExists(id))
+                ModelState.AddModelError("tallyId", "tally id doesn't exists");
+            
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            var tallyFromRepo = await _repo.GetTally(id);
+
+            var tallyToReturn = _mapper.Map<TalliesDto>(tallyFromRepo);
+
+            return Ok(tallyToReturn);
+        }
+
         [HttpPost]
         public async Task<ActionResult> CreateTally([FromBody] TallyForCreationDto tallyForCreationDto)
         {
@@ -37,8 +53,11 @@ namespace caja.Controllers
             var tallyToCreate = _mapper.Map<Tally>(tallyForCreationDto);
             _repo.Add(tallyToCreate);
 
+            var tallyToReturn = _mapper.Map<TalliesDto>(tallyToCreate);
+
             if (await _repo.SaveAll())
-                return Ok("new tally created");
+                return CreatedAtRoute("GetTally", new {id = tallyToCreate.Id}, tallyToReturn);
+                // return Ok("new tally created"); this will throw an error in the SPA rxjs subscribe method
 
             throw new Exception("failed on creation");
         }
