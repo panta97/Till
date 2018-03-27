@@ -37,10 +37,26 @@ namespace caja.Controllers
 
       if (await _repo.SaveAll())
       {
+        foreach (var earning in earnings)
+        {
+          var newTallyEarning = new TallyEarning()
+          {
+            TallyId = id,
+            EarningId = earning.Id
+          };
+
+          _repo.Add(newTallyEarning);
+        }
+      } else {
+        throw new Exception("failed on creating earning template");
+      };
+
+      if (await _repo.SaveAll())
+      {
         return Ok();
       }
 
-      throw new Exception("failed on creating earning template");
+      throw new Exception("failed on creating earning template and tallyEarnings");
 
     }
 
