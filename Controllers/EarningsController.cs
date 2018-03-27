@@ -53,7 +53,7 @@ namespace caja.Controllers
 
       if (await _repo.SaveAll())
       {
-        return Ok();
+        return Ok(id);
       }
 
       throw new Exception("failed on creating earning template and tallyEarnings");
