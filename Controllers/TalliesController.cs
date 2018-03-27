@@ -56,6 +56,7 @@ namespace caja.Controllers
             var tallyToReturn = _mapper.Map<TalliesDto>(tallyToCreate);
 
             if (await _repo.SaveAll())
+                tallyToReturn.Id = tallyToCreate.Id;
                 return CreatedAtRoute("GetTally", new {id = tallyToCreate.Id}, tallyToReturn);
                 // return Ok("new tally created"); this will throw an error in the SPA rxjs subscribe method
 
