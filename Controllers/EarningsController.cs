@@ -87,7 +87,7 @@ namespace caja.Controllers
 
       if (await _repo.SaveAll())
       {
-        return Ok("successfully updated");
+        return NoContent();
       }
 
       throw new Exception("failed on updating the earning");
