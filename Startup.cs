@@ -36,6 +36,7 @@ namespace caja
             services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ICommonRepository, CommonRepository>();
+            services.AddScoped<IReportRepository, ReportRepository>();
             services.AddCors();
             services.AddMvc();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

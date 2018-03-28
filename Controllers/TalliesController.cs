@@ -15,10 +15,12 @@ namespace caja.Controllers
     {
         private readonly ICommonRepository _repo;
         private readonly IMapper _mapper;
-        public TalliesController(ICommonRepository repo, IMapper mapper)
+        private readonly IReportRepository _report;
+        public TalliesController(ICommonRepository repo, IReportRepository report, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
+            _report = report;
         }
 
         [HttpGet("{id}", Name = "GetTally")]
@@ -61,6 +63,14 @@ namespace caja.Controllers
                 // return Ok("new tally created"); this will throw an error in the SPA rxjs subscribe method
 
             throw new Exception("failed on creation");
+        }
+
+        [HttpGet("detail/{id}")]
+        public async Task<ActionResult> GetTallyDetails(int id)
+        {
+            var tallyDetails = await _report.GetTallyDetail(id);
+
+            return Ok(tallyDetails);
         }
 
     }
