@@ -36,7 +36,21 @@ namespace caja.Controllers
             _repo.Add(expenseToCreate);
 
             if (await _repo.SaveAll())
-                return Ok("created for now");
+            {
+                var newTallyExpense = new TallyExpense()
+                {
+                    TallyId = expenseToCreate.TallyId,
+                    ExpenseId = expenseToCreate.Id
+                };
+                
+                _repo.Add(newTallyExpense);
+            } else {
+                throw new Exception("failed on creation tallyExpense");
+            }
+
+
+            if (await _repo.SaveAll())
+                return Ok(expenseToCreate.Id);
             // return CreatedAtRoute("GetExpenseByType", new {id = message.Id}, messageToReturn);
 
 
@@ -71,9 +85,9 @@ namespace caja.Controllers
                 ModelState.AddModelError("expenseType", "expense type must be iether sistema or diario");
             }
 
-            if (!await _repo.TillExists(expenseParams.TillId))
+            if (!await _repo.TallyExists(expenseParams.TallyId))
             {
-                ModelState.AddModelError("tillId", "Till Id doesn't exist");
+                ModelState.AddModelError("tallyId", "Tally Id doesn't exist");
             }
 
             if (!ModelState.IsValid)
@@ -81,7 +95,7 @@ namespace caja.Controllers
                 return BadRequest(ModelState);
             }
 
-            var expenses = await _repo.GetExpensesByType(expenseParams.TillId, expenseParams.Type);
+            var expenses = await _repo.GetExpensesByType(expenseParams.TallyId, expenseParams.Type);
 
             var expensesToReturn = _mapper.Map<IEnumerable<ExpensesDto>>(expenses);
 
@@ -99,16 +113,18 @@ namespace caja.Controllers
 
             // var earningToReturn = _mapper.Map(earningForUpdateDto, earningFromRepo);
 
-            if (expenseForUpdateDto.Amount == expenseFromRepo.Amount || expenseForUpdateDto.Description == expenseFromRepo.Description)
+            if (expenseForUpdateDto.Amount != expenseFromRepo.Amount || expenseForUpdateDto.Description != expenseFromRepo.Description)
             {
-                return Ok("amount or description have the same value");
-            }
+                var expenseToReturn = _mapper.Map(expenseForUpdateDto, expenseFromRepo);
 
-            var expenseToReturn = _mapper.Map(expenseForUpdateDto, expenseFromRepo);
+                if (await _repo.SaveAll())
+                {
+                    return Ok();
+                }
 
-            if (await _repo.SaveAll())
-            {
-                return Ok("successfully updated");
+            } else {
+                ModelState.AddModelError("sameValue", "amount or description have the same value");
+                return BadRequest(ModelState);
             }
 
             throw new Exception("failed on updating the expense");
